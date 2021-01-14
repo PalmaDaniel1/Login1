@@ -1,0 +1,42 @@
+<div class="register">
+  <form class="custom-form" method="post">
+    <h1>Register</h1>
+    <input
+      type="nombre"
+      [(ngModel)]="nombre"
+      name="nombre"
+      placeholder="nombre"
+      required="required"
+    />
+    <input
+    type="celular"
+    [(ngModel)]="celular"
+    name="celular"
+    placeholder="Celular"
+    required="required"
+  />
+    <input
+      type="email"
+      [(ngModel)]="email"
+      name="email"
+      placeholder="Email"
+      required="required"
+    />
+    <input
+      type="password"
+      [(ngModel)]="password"
+      name="password"
+      placeholder="Password"
+      required="required"
+    />
+    <input
+      type="password"
+      [(ngModel)]="confirmPassword"
+      name="password"
+      placeholder="Repeat the password"
+      required="required"
+    />
+    <button type="submit" (click)="ejectutar_dos_funciones()">Register</button>
+  </form>
+</div>
+
