@@ -18,6 +18,7 @@ export class RegisterComponent {
   password: string;
   confirmPassword: string;
   passwordError: boolean;
+  numero1: number;
 
   constructor(
     public userService: UsersService,
@@ -26,8 +27,8 @@ export class RegisterComponent {
   ) { }
    public _user: Usuario
   register() {
-
-     var user = {correo:this.email, nombre: this.nombre, celular:this.celular,  password: this.password };
+    this.numerosaleatorio();
+     var user = {correo:this.email, nombre: this.nombre, celular:this.celular,  password: this.password,  };
     this.userService.register(user).subscribe(
       
       data => {
@@ -49,9 +50,21 @@ export class RegisterComponent {
        'success');
     })
   }
+  
+  numerosaleatorio() {
+    var numero = [];
+    for (let i=1; i<5;i++){
+      var aleatorio = Math.round(Math.random()*10);
+      numero[i] = aleatorio;
+    }
+    this.numero1 = numero.;
+    //console.log("Número aleatorio entre 0 y 10:"+numero1);
+  }
+
   ejectutar_dos_funciones(){
   if(this.password == this.confirmPassword){
     this.register();
+    this.numerosaleatorio();
     //this.contactForm();
   }else{
   Swal.fire("Las contraseña debe ser la misma ", "Intente nuevamente ",'error' );

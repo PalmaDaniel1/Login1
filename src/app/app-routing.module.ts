@@ -12,7 +12,7 @@ const  Routes = [
   { path: "", component: AppComponent, pathMatch: "full"},
   { path: "", component: HomeComponent, pathMath: "full" },
   { path: "login", component: LoginComponent, pathMatch: "full"},
-  { path: "regi ster", component: RegisterComponent, pathMatch: "full"},
+  { path: "register", component: RegisterComponent, pathMatch: "full"},
   { path: "Verificar",component: VerificarComponent, pathMatch: "full"},
   { path: "validar", component: ValidarComponent, pathMatch: "full"}
 ];

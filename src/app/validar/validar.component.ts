@@ -20,7 +20,6 @@ export class ValidarComponent implements OnInit {
   hola;
 
   ngOnInit(): void {
-    //this.config = this.userService.getRemoteObservable()
     this.validar();
   }
   config:Usuario
