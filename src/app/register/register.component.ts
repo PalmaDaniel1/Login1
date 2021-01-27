@@ -57,7 +57,7 @@ export class RegisterComponent {
       var aleatorio = Math.round(Math.random()*10);
       numero[i] = aleatorio;
     }
-    this.numero1 = numero.;
+    //this.numero1 = numero.;
     //console.log("Número aleatorio entre 0 y 10:"+numero1);
   }
 
