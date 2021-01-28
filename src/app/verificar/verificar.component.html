@@ -7,12 +7,12 @@
     
     <mat-card-content>
         <p >
-            Este es un mensaje de verificacion de email, porfavor revise su correo para poder validar sus datos,
-            Si no le a llegado el email, porfavor presione el boton de reenvio de mensaje de verificación.
-            Gracias 
+            Este es un mensaje de verificacion de email, porfavor revise su correo si ya le llego el correo, para poder validar sus datos,
+            Si no le a llegado el email, porfavor presione el boton de reenvio de mensaje.
+            Gracias !!! 
         </p>
     </mat-card-content>
     <mat-card-actions >
-        <button mat-button>Renviar</button>
+        <button mat-button (click)= "reenviar()">Renviar</button>
       </mat-card-actions>
 </mat-card>

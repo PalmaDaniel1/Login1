@@ -17,6 +17,7 @@ import { MatCardModule} from '@angular/material/card';
 import { RouterModule } from '@angular/router';
 import { ValidarComponent } from './validar/validar.component';
 import { UsersService } from './users/users.service';
+import { PasswordComponent } from './password/password.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +25,8 @@ import { UsersService } from './users/users.service';
     RegisterComponent,
     HomeComponent,
     VerificarComponent,
-    ValidarComponent
+    ValidarComponent,
+    PasswordComponent
   ],
   imports: [
     BrowserModule,

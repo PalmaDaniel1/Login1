@@ -12,6 +12,7 @@ import { Login, Usuario } from '../other/interface';
 export class UsersService {
 
   _user: Usuario;
+  aleatorio2: string;
 
   constructor(
     private http: HttpClient,
@@ -20,6 +21,9 @@ export class UsersService {
   login(correo:String ): Observable<any> {
     //console.log(user)
     return this.http.get(`http://localhost:8888/registro/buscar/${correo}`);
+  }
+  aleatorio(): Observable<any>{
+    return this.http.get('http://localhost:8888/registro/aleatorio');
   }
   register(user): Observable<any> {
     return this.http.post("http://localhost:8888/registro/agregar/", user);

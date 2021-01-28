@@ -11,29 +11,48 @@ import { Usuario } from '../other/interface';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
-export class RegisterComponent {
+export class RegisterComponent implements OnInit{
   celular: string;
   nombre: string;
   email: any;
   password: string;
   confirmPassword: string;
   passwordError: boolean;
-  numero1: number;
+  aleatorio: any;
 
   constructor(
     public userService: UsersService,
     public _MessageService: MensajeService,
     public router:Router
   ) { }
-   public _user: Usuario
-  register() {
+
+  ngOnInit(){
     this.numerosaleatorio();
-     var user = {correo:this.email, nombre: this.nombre, celular:this.celular,  password: this.password,  };
+  }
+   public _user: Usuario
+
+   numerosaleatorio() {
+    this.userService
+    .aleatorio()
+    .subscribe(
+      data => {
+        //console.log(data)
+        this.aleatorio = data
+        //console.log(this.aleatorio)
+      }
+    );
+    }
+
+
+  register() {
+    console.log(this.aleatorio);
+
+     var user = {correo:this.email, nombre: this.nombre, celular:this.celular,  password: this.password, aleatorio: this.aleatorio};
     this.userService.register(user).subscribe(
       
       data => {
       //this.userService.setToken(data.token);
-      this.userService._user=data
+      this.userService._user=data;
       console.log(this.userService._user);
       //alert(data);
 
@@ -43,7 +62,7 @@ export class RegisterComponent {
   }
 
   contactForm(){
-    var user = {email:this.email, nombre: this.nombre}
+    var user = {email:this.email, nombre: this.nombre, aleatorio: this.aleatorio}
     console.log(user);
     this._MessageService.sendMessage(user).subscribe( () => {
       Swal.fire("Formulario de contacto", "Mensaje enviado correctamente",
@@ -51,21 +70,10 @@ export class RegisterComponent {
     })
   }
   
-  numerosaleatorio() {
-    var numero = [];
-    for (let i=1; i<5;i++){
-      var aleatorio = Math.round(Math.random()*10);
-      numero[i] = aleatorio;
-    }
-    //this.numero1 = numero.;
-    //console.log("Número aleatorio entre 0 y 10:"+numero1);
-  }
-
   ejectutar_dos_funciones(){
   if(this.password == this.confirmPassword){
     this.register();
-    this.numerosaleatorio();
-    //this.contactForm();
+    this.contactForm();
   }else{
   Swal.fire("Las contraseña debe ser la misma ", "Intente nuevamente ",'error' );
   }

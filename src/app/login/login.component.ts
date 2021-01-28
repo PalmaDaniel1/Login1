@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit{
   email : string;
   password: string;
 
+
   constructor(
     public userService: UsersService,
     public router: Router,
@@ -33,14 +34,22 @@ export class LoginComponent implements OnInit{
     .login(user.correo)    
     .subscribe(
       (data) => {
-        this.logi=data
-        console.log(this.logi);
-        if(this.email == this.logi.correo){
-                
-        this.userService.setToken(data.token);
-        this.router.navigateByUrl("/");
+        this.userService._user=data
+        console.log(this.userService._user);
+        if(this.password == this.userService._user.password && this.email == this.userService._user.correo){
+        console.log("si coincide la contraseña");
+          if (this.userService._user.confirm == 0) {
+            console.log("if de confirm");
+            this.router.navigateByUrl("/password");
+          }else{
+            if(this.userService._user.confirm == 1){
+              this.router.navigateByUrl("/");
+            }
+          }
+        //this.userService.setToken(data.token);
+        //this.router.navigateByUrl("/");
         }else{
-          Swal.fire('Correo incorrecto','alert','error')
+          Swal.fire('Correo ó contraseña incorrecta','alert','error')
         }
       },
       error => {

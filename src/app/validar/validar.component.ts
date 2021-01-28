@@ -27,7 +27,7 @@ export class ValidarComponent implements OnInit {
   _user3: Usuario
  // correo:string
   validar(){
-    var confirm = 1
+    //var confirm = 1
     //console.log("Hola")
     //console.log(this.userService._user)
     this._user3=this.userService._user
